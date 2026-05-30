@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      3D Cube Engine
+    </title>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Alkatra&family=Allura&family=Amatic+SC&family=Antic+Didone&family=Architects+Daughter&family=Bebas+Neue&family=Bodoni+Moda&family=Castoro+Titling&family=Cinzel&family=Cormorant+Garamond&family=Courier+Prime&family=DM+Sans&family=Dancing+Script&family=Elsie&family=Fraunces&family=Gaegu&family=Gilda+Display&family=Inconsolata&family=Inter&family=Italiana&family=JetBrains+Mono&family=Josefin+Sans&family=Jost&family=La+Belle+Aurore&family=Lexend&family=Lora&family=Major+Mono+Display&family=Manrope&family=Milonga&family=Monoton&family=Montserrat&family=Oooh+Baby&family=Outfit&family=Parisienne&family=Playfair+Display&family=Plus+Jakarta+Sans&family=Pinyon+Script&family=Poiret+One&family=Poppins&family=Prata&family=Quicksand&family=Sacramento&family=Space+Grotesk&family=Space+Mono&family=Syne&family=Tenor+Sans&family=Unbounded&family=Urbanist&family=Vidaloka&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+      }
+      .site {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 35, 0.87);
+        perspective: 100vh;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 20%;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+      }
+      #cube {
+        position: relative;
+        transform-style: preserve-3d;
+        height: 20vh;
+        width: 20vh;
+        animation: rotate 21s linear infinite;
+      }
+      .face {
+        position: absolute;
+        height: 20vh;
+        width: 20vh;
+        background: rgba(0, 200, 200, 0.13);
+        backdrop-filter: blur(4px);
+        box-shadow: inset 0 0 1vmin rgba(0, 205, 205, 0.21);
+        display: grid;
+        place-items: center;
+        font-weight: bold;
+        font-family: 'Times New Roman';
+        font-size: clamp(2vmin, 3.5vmin, 4vmin);
+        color: cyan;
+        border: 0.41vmin solid cyan;
+      }
+      .front {
+        transform: translateZ(10vh);
+      }
+      .back {
+        transform: rotateY(180deg) translateZ(10vh);
+      }
+      .top {
+        transform: rotateX(90deg) translateZ(10vh);
+      }
+      .bottom {
+        transform: rotateX(-90deg) translateZ(10vh);
+      }
+      .right {
+        transform: rotateY(90deg) translateZ(10vh);
+      }
+      .left {
+        transform: rotateY(-90deg) translateZ(10vh);
+      }
+      @keyframes rotate {
+        from { transform: rotateX(0deg) rotateY(0deg); }
+        to { transform: rotateX(360deg) rotateY(360deg); }
+      }
+      h1 {
+        position: relative;
+        color: rgba(0, 230, 230, 0.48);
+        text-shadow: 0 0 0.5vw rgba(0, 255, 255, 0.4);
+        text-align: center;
+        font-size: clamp(4vmin, 6vw, 8vmin);
+        font-family: 'Space Grotesk';
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site">
+      <div id="cube">
+        <div class="face front">Front</div>
+        <div class="face back">Back</div>
+      
+        <div class="face top">Top</div>
+        <div class="face bottom">Bottom</div>
+      
+        <div class="face right">Right</div>
+        <div class="face left">Left</div>
+      </div>
+      <h1>3D Cube Engine</h1>
+    </div>
+  </body>
+</html>
