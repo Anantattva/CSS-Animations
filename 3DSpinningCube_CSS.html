@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      3D CSS Spinning Cube
+    </title>
+    <style>
+      body {
+        margin: 0;
+      }
+      #display {
+        position: absolute;
+        margin: 0;
+        height: 100dvh;
+        width: 100dvw;
+        background: rgb(0, 0, 0);
+        display: grid;
+        place-items: center;
+        perspective: 700px;
+      }
+      
+      .cube {
+        position: relative;
+        scale: 0.6;
+        display: flex;
+        transform-style: preserve-3d;
+        height: 30dvh;
+        width: 30dvh;
+        animation: spin 12s linear infinite;
+      }
+      .face {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        backface-visibility: hidden;
+      }
+      .side {
+        transform: rotateY(calc(var(--i) * 90deg)) translateZ(15dvh);
+        background-image: linear-gradient(
+          0deg,
+          rgb(0, 250, 60),
+          rgba(255, 0, 0, 0.45)
+        );
+      }
+      .top {
+        background: rgba(255, 0, 0, 0.45);
+        transform: rotateX(90deg) translateZ(15dvh);
+      }
+      .bottom {
+        background: rgba(0, 250, 60, 0.9);
+        box-shadow:
+          0 0 8px 4px rgba(0, 250, 60, 0.7),
+          0 0 12px 6px rgba(0, 250, 60, 0.5),
+          0 0 16px 8px rgba(0, 250, 60, 0.3)
+        ;
+        height: 95%;
+        width: 95%;
+        transform: rotateX(-90deg) translateZ(18dvh);
+        backface-visibility: visible;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotateX(-20deg) rotateY(0deg);
+        }
+        100% {
+          transform: rotateX(-20deg) rotateY(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="display">
+      <div class="cube">
+        <div class="front side face" style="--i: 0;"></div>
+        <div class="left side face" style="--i: 1;"></div>
+        <div class="back side face" style="--i: 2;"></div>
+        <div class="right side face" style="--i: 3;"></div>
+        <div class="top face"></div>
+        <div class="bottom face"></div>
+      </div>
+    </div>
+    <script>
+      // ।। ॐ नमः शिवाय ।। \\
+      
+    </script>
+  </body>
+</html>
